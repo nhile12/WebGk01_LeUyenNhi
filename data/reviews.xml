@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reviews>
+  <review id="RV001" product_id="1">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-06</date>
+  </review>
+  <review id="RV002" product_id="1">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-17</date>
+  </review>
+  <review id="RV003" product_id="1">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>3</rating>
+    <comment>Tạm ổn, đúng giá tiền.</comment>
+    <date>2026-08-28</date>
+  </review>
+  <review id="RV004" product_id="2">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-11</date>
+  </review>
+  <review id="RV005" product_id="2">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>5</rating>
+    <comment>Sản phẩm tuyệt vời, đúng như mô tả!</comment>
+    <date>2026-08-22</date>
+  </review>
+  <review id="RV006" product_id="2">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-05</date>
+  </review>
+  <review id="RV007" product_id="2">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>3</rating>
+    <comment>Giao hàng hơi chậm nhưng hàng ổn.</comment>
+    <date>2026-10-16</date>
+  </review>
+  <review id="RV008" product_id="3">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-16</date>
+  </review>
+  <review id="RV009" product_id="3">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-27</date>
+  </review>
+  <review id="RV010" product_id="3">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-10</date>
+  </review>
+  <review id="RV011" product_id="3">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>5</rating>
+    <comment>Sản phẩm tuyệt vời, đúng như mô tả!</comment>
+    <date>2026-08-21</date>
+  </review>
+  <review id="RV012" product_id="3">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>3</rating>
+    <comment>Chất lượng bình thường.</comment>
+    <date>2026-09-04</date>
+  </review>
+  <review id="RV013" product_id="4">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>3</rating>
+    <comment>Chất lượng bình thường.</comment>
+    <date>2026-09-21</date>
+  </review>
+  <review id="RV014" product_id="4">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-04</date>
+  </review>
+  <review id="RV015" product_id="5">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-10-26</date>
+  </review>
+  <review id="RV016" product_id="5">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>3</rating>
+    <comment>Tạm ổn, đúng giá tiền.</comment>
+    <date>2026-08-09</date>
+  </review>
+  <review id="RV017" product_id="5">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>4</rating>
+    <comment>Hàng đẹp, giá hợp lý.</comment>
+    <date>2026-09-20</date>
+  </review>
+  <review id="RV018" product_id="6">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-03</date>
+  </review>
+  <review id="RV019" product_id="6">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-09-14</date>
+  </review>
+  <review id="RV020" product_id="6">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>3</rating>
+    <comment>Giao hàng hơi chậm nhưng hàng ổn.</comment>
+    <date>2026-10-25</date>
+  </review>
+  <review id="RV021" product_id="6">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-08</date>
+  </review>
+  <review id="RV022" product_id="7">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-09-08</date>
+  </review>
+  <review id="RV023" product_id="7">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-19</date>
+  </review>
+  <review id="RV024" product_id="7">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-08-02</date>
+  </review>
+  <review id="RV025" product_id="7">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>3</rating>
+    <comment>Chất lượng bình thường.</comment>
+    <date>2026-09-13</date>
+  </review>
+  <review id="RV026" product_id="7">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-24</date>
+  </review>
+  <review id="RV027" product_id="8">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-13</date>
+  </review>
+  <review id="RV028" product_id="8">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-08-24</date>
+  </review>
+  <review id="RV029" product_id="9">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>3</rating>
+    <comment>Tạm ổn, đúng giá tiền.</comment>
+    <date>2026-08-18</date>
+  </review>
+  <review id="RV030" product_id="9">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>4</rating>
+    <comment>Hàng đẹp, giá hợp lý.</comment>
+    <date>2026-09-01</date>
+  </review>
+  <review id="RV031" product_id="9">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-10-12</date>
+  </review>
+  <review id="RV032" product_id="10">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-23</date>
+  </review>
+  <review id="RV033" product_id="10">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>3</rating>
+    <comment>Giao hàng hơi chậm nhưng hàng ổn.</comment>
+    <date>2026-10-06</date>
+  </review>
+  <review id="RV034" product_id="10">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-17</date>
+  </review>
+  <review id="RV035" product_id="10">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-09-28</date>
+  </review>
+  <review id="RV036" product_id="11">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-28</date>
+  </review>
+  <review id="RV037" product_id="11">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>5</rating>
+    <comment>Sản phẩm tuyệt vời, đúng như mô tả!</comment>
+    <date>2026-08-11</date>
+  </review>
+  <review id="RV038" product_id="11">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>3</rating>
+    <comment>Chất lượng bình thường.</comment>
+    <date>2026-09-22</date>
+  </review>
+  <review id="RV039" product_id="11">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-05</date>
+  </review>
+  <review id="RV040" product_id="11">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-08-16</date>
+  </review>
+  <review id="RV041" product_id="12">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>5</rating>
+    <comment>Sản phẩm tuyệt vời, đúng như mô tả!</comment>
+    <date>2026-08-05</date>
+  </review>
+  <review id="RV042" product_id="12">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-16</date>
+  </review>
+  <review id="RV043" product_id="13">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>4</rating>
+    <comment>Hàng đẹp, giá hợp lý.</comment>
+    <date>2026-09-10</date>
+  </review>
+  <review id="RV044" product_id="13">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-21</date>
+  </review>
+  <review id="RV045" product_id="13">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>5</rating>
+    <comment>Sản phẩm tuyệt vời, đúng như mô tả!</comment>
+    <date>2026-08-04</date>
+  </review>
+  <review id="RV046" product_id="14">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>3</rating>
+    <comment>Giao hàng hơi chậm nhưng hàng ổn.</comment>
+    <date>2026-10-15</date>
+  </review>
+  <review id="RV047" product_id="14">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-26</date>
+  </review>
+  <review id="RV048" product_id="14">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-09</date>
+  </review>
+  <review id="RV049" product_id="14">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-20</date>
+  </review>
+  <review id="RV050" product_id="15">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-08-20</date>
+  </review>
+  <review id="RV051" product_id="15">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>3</rating>
+    <comment>Chất lượng bình thường.</comment>
+    <date>2026-09-03</date>
+  </review>
+  <review id="RV052" product_id="15">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-14</date>
+  </review>
+  <review id="RV053" product_id="15">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>5</rating>
+    <comment>Sản phẩm tuyệt vời, đúng như mô tả!</comment>
+    <date>2026-08-25</date>
+  </review>
+  <review id="RV054" product_id="15">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>5</rating>
+    <comment>Rất hài lòng, sẽ ủng hộ shop tiếp.</comment>
+    <date>2026-09-08</date>
+  </review>
+  <review id="RV055" product_id="16">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>4</rating>
+    <comment>Hàng đẹp, giá hợp lý.</comment>
+    <date>2026-09-25</date>
+  </review>
+  <review id="RV056" product_id="16">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-10-08</date>
+  </review>
+  <review id="RV057" product_id="17">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-10-02</date>
+  </review>
+  <review id="RV058" product_id="17">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-13</date>
+  </review>
+  <review id="RV059" product_id="17">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-09-24</date>
+  </review>
+  <review id="RV060" product_id="18">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>4</rating>
+    <comment>Sản phẩm tốt, đóng gói cẩn thận.</comment>
+    <date>2026-08-07</date>
+  </review>
+  <review id="RV061" product_id="18">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-09-18</date>
+  </review>
+  <review id="RV062" product_id="18">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-01</date>
+  </review>
+  <review id="RV063" product_id="18">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-08-12</date>
+  </review>
+  <review id="RV064" product_id="19">
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <rating>3</rating>
+    <comment>Chất lượng bình thường.</comment>
+    <date>2026-09-12</date>
+  </review>
+  <review id="RV065" product_id="19">
+    <customer id="KH002">Trần Thị Bình</customer>
+    <rating>4</rating>
+    <comment>Khá ưng ý, màu giống hình.</comment>
+    <date>2026-10-23</date>
+  </review>
+  <review id="RV066" product_id="19">
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <rating>1</rating>
+    <comment>Sản phẩm bị lỗi, khá thất vọng.</comment>
+    <date>2026-08-06</date>
+  </review>
+  <review id="RV067" product_id="19">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>4</rating>
+    <comment>Hàng đẹp, giá hợp lý.</comment>
+    <date>2026-09-17</date>
+  </review>
+  <review id="RV068" product_id="19">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>2</rating>
+    <comment>Chất liệu hơi mỏng.</comment>
+    <date>2026-10-28</date>
+  </review>
+  <review id="RV069" product_id="20">
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <rating>5</rating>
+    <comment>Chất lượng xuất sắc, giao hàng nhanh.</comment>
+    <date>2026-10-17</date>
+  </review>
+  <review id="RV070" product_id="20">
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <rating>3</rating>
+    <comment>Tạm ổn, đúng giá tiền.</comment>
+    <date>2026-08-28</date>
+  </review>
+</reviews>

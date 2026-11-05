@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản trị - UELShop</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- ================= MÀN HÌNH ĐĂNG NHẬP ================= -->
+  <section id="loginScreen" class="login-screen" aria-labelledby="loginTitle">
+    <form id="loginForm" class="login-card" novalidate>
+      <a href="index.html" class="logo">UEL<span>Shop</span></a>
+      <h1 id="loginTitle">Đăng nhập quản trị</h1>
+      <p class="login-sub">Dành cho nhân viên (dữ liệu từ data/employees.json)</p>
+
+      <label for="loginUser">Tên đăng nhập</label>
+      <input type="text" id="loginUser" name="username" autocomplete="username" required minlength="3" maxlength="30" placeholder="VD: admin">
+      <small class="field-msg" id="loginUserMsg"></small>
+
+      <label for="loginPass">Mật khẩu</label>
+      <div class="pass-wrap">
+        <input type="password" id="loginPass" name="password" autocomplete="current-password" required minlength="6" maxlength="30" placeholder="Nhập mật khẩu">
+        <button type="button" id="togglePass" class="eye" aria-label="Hiện mật khẩu">👁</button>
+      </div>
+      <small class="field-msg" id="loginPassMsg"></small>
+
+      <label class="remember"><input type="checkbox" id="remember" name="remember"> Ghi nhớ đăng nhập</label>
+
+      <p id="loginError" class="login-error" role="alert"></p>
+      <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+      <p class="login-hint">Tài khoản mẫu: <code>admin / admin123</code> (quản trị) hoặc <code>mai.tt / mai@2026</code> (bán hàng)</p>
+      <a href="index.html" class="back-link">← Về trang chủ</a>
+    </form>
+  </section>
+
+  <!-- ================= GIAO DIỆN QUẢN TRỊ ================= -->
+  <div id="adminApp" class="admin" hidden>
+
+    <aside class="admin-sidebar">
+      <a href="index.html" class="logo">UEL<span>Shop</span> <small>Admin</small></a>
+      <nav aria-label="Menu quản trị">
+        <ul id="adminMenu">
+          <li><a href="#dashboard" data-view="dashboard" class="active">📊 Tổng quan</a></li>
+          <li><a href="#orders" data-view="orders">🧾 Quản lý đơn hàng</a></li>
+          <li><a href="#products" data-view="products">📦 Sản phẩm bán ra</a></li>
+        </ul>
+      </nav>
+      <a href="products.html" class="sidebar-link">🛍 Xem cửa hàng</a>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <h1 id="viewTitle">Tổng quan</h1>
+        <div class="user-box">
+          <span class="avatar" id="userAvatar">A</span>
+          <div>
+            <strong id="userName"></strong>
+            <small id="userRole"></small>
+          </div>
+          <button type="button" id="btnLogout" class="btn btn-light">Đăng xuất</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+
+        <!-- ===== TỔNG QUAN / THỐNG KÊ ===== -->
+        <section id="view-dashboard" class="view show" aria-label="Thống kê">
+          <div class="kpi-grid">
+            <article class="kpi"><p>Tổng đơn hàng</p><strong id="kpiOrders">0</strong><small id="kpiOrdersSub"></small></article>
+            <article class="kpi"><p>Doanh thu</p><strong id="kpiRevenue">$0</strong><small>Không tính đơn đã hủy</small></article>
+            <article class="kpi"><p>Sản phẩm đã bán</p><strong id="kpiSold">0</strong><small id="kpiSoldSub"></small></article>
+            <article class="kpi"><p>Đơn chờ xử lý</p><strong id="kpiPending">0</strong><small>Trạng thái: Chờ xác nhận</small></article>
+          </div>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <h2>Doanh thu theo ngày</h2>
+              <div id="revenueChart" class="bar-chart" role="img" aria-label="Biểu đồ doanh thu theo ngày"></div>
+            </article>
+            <article class="panel">
+              <h2>Đơn hàng theo trạng thái</h2>
+              <div class="donut-wrap">
+                <div id="statusDonut" class="donut" role="img" aria-label="Tỷ lệ đơn hàng theo trạng thái"><span id="donutCenter">0</span></div>
+                <ul id="statusLegend" class="legend"></ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <h2>Top 5 sản phẩm bán chạy</h2>
+              <ol id="topProducts" class="top-list"></ol>
+            </article>
+            <article class="panel">
+              <h2>Doanh số theo nhân viên</h2>
+              <table class="table compact">
+                <thead><tr><th>Nhân viên</th><th>Số đơn</th><th>Doanh thu</th></tr></thead>
+                <tbody id="staffTable"></tbody>
+              </table>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== QUẢN LÝ ĐƠN HÀNG ===== -->
+        <section id="view-orders" class="view" aria-label="Quản lý đơn hàng">
+          <form id="orderFilter" class="toolbar" autocomplete="off">
+            <input type="search" id="orderSearch" placeholder="Tìm mã đơn, khách hàng, SĐT..." maxlength="50">
+            <select id="orderStatus" aria-label="Lọc trạng thái">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="pending">Chờ xác nhận</option>
+              <option value="confirmed">Đã xác nhận</option>
+              <option value="shipping">Đang giao</option>
+              <option value="completed">Hoàn thành</option>
+              <option value="cancelled">Đã hủy</option>
+            </select>
+            <select id="orderSource" aria-label="Lọc nguồn đơn">
+              <option value="all">Tất cả nguồn</option>
+              <option value="carts.xml">Hóa đơn (carts.xml)</option>
+              <option value="website">Đặt trên website</option>
+            </select>
+            <span id="orderCount" class="muted"></span>
+          </form>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr><th>Mã đơn</th><th>Ngày đặt</th><th>Khách hàng</th><th>Nhân viên</th><th>SL</th><th>Tổng tiền</th><th>Thanh toán</th><th>Trạng thái</th><th></th></tr>
+              </thead>
+              <tbody id="orderTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== SẢN PHẨM BÁN RA ===== -->
+        <section id="view-products" class="view" aria-label="Sản phẩm bán ra">
+          <div class="toolbar">
+            <input type="search" id="productSearch" placeholder="Tìm tên sản phẩm, SKU..." maxlength="50">
+            <span class="muted">Thống kê từ các đơn chưa bị hủy</span>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr><th>#</th><th>SKU</th><th>Sản phẩm</th><th>Danh mục</th><th>Đã bán</th><th>Doanh thu</th><th>Số đơn</th><th>Tồn kho</th></tr>
+              </thead>
+              <tbody id="productTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer class="admin-footer">
+        Sinh viên thực hiện: <strong>Lê Uyên Nhi</strong> - MSSV: <strong>K244161801</strong>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Chi tiết đơn hàng -->
+  <dialog id="orderDialog" class="dialog" aria-labelledby="odTitle">
+    <button type="button" class="icon-btn dialog-close" data-close aria-label="Đóng">✕</button>
+    <h3 id="odTitle">Chi tiết đơn hàng</h3>
+    <div class="od-info" id="odInfo"></div>
+    <table class="table compact">
+      <thead><tr><th>Sản phẩm</th><th>Màu/Size</th><th>SL</th><th>Đơn giá</th><th>Thành tiền</th></tr></thead>
+      <tbody id="odItems"></tbody>
+    </table>
+    <dl class="od-total" id="odTotal"></dl>
+    <div class="od-actions">
+      <label for="odStatus">Cập nhật trạng thái:</label>
+      <select id="odStatus">
+        <option value="pending">Chờ xác nhận</option>
+        <option value="confirmed">Đã xác nhận</option>
+        <option value="shipping">Đang giao</option>
+        <option value="completed">Hoàn thành</option>
+        <option value="cancelled">Đã hủy</option>
+      </select>
+      <button type="button" id="odSave" class="btn btn-primary">Lưu</button>
+    </div>
+    <p id="odMsg" class="muted"></p>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

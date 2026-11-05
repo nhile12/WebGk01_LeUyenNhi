@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Câu 1 - Dữ liệu sản phẩm</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; display: flex; flex-direction: column; min-height: 100vh; }
+    header { background: #2c3e50; color: #fff; padding: 12px 20px; }
+    header h1 { margin: 0; font-size: 22px; }
+    /* MENU */
+    nav ul { list-style: none; margin: 0; padding: 0 20px; background: #34495e; display: flex; flex-wrap: wrap; }
+    nav li a { display: block; padding: 12px 16px; color: #ecf0f1; text-decoration: none; }
+    nav li a:hover, nav li a.active { background: #1abc9c; color: #fff; }
+    main { flex: 1; padding: 20px; }
+    section { display: none; }
+    section.show { display: block; }
+    h2 { color: #2c3e50; margin-top: 0; }
+    button { padding: 8px 16px; margin: 0 8px 8px 0; cursor: pointer; border: 0; border-radius: 4px; background: #2980b9; color: #fff; }
+    button.danger { background: #c0392b; }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    .status { margin: 10px 0; font-style: italic; }
+    table { border-collapse: collapse; width: 100%; background: #fff; }
+    th, td { border: 1px solid #ddd; padding: 6px; font-size: 14px; vertical-align: middle; text-align: left; }
+    th { background: #34495e; color: #fff; }
+    td img { width: 50px; height: 50px; object-fit: contain; }
+    .swatch { display: inline-block; width: 16px; height: 16px; border: 1px solid #999; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+    footer { background: #2c3e50; color: #ecf0f1; text-align: center; padding: 14px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header><h1>Mini-Project Website Bán Hàng - Câu 1: Dữ liệu JSON/XML</h1></header>
+
+  <!-- MENU -->
+  <nav>
+    <ul id="menu">
+      <li><a href="#products" data-view="products">Sản phẩm (API)</a></li>
+      <li><a href="#employees" data-view="employees">Nhân viên</a></li>
+      <li><a href="#customers" data-view="customers">Khách hàng</a></li>
+      <li><a href="#carts" data-view="carts">Hóa đơn</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Sản phẩm -->
+    <section id="view-products">
+      <h2>Đọc dữ liệu từ Fake Store API bằng DOM</h2>
+      <button id="btnLoad">1. Đọc dữ liệu từ API</button>
+      <button id="btnSaveXml" disabled>2. Lưu products.xml</button>
+      <button id="btnSave" disabled>3. Lưu products.json</button>
+      <button id="btnClear" class="danger">Xóa dữ liệu tạm (localStorage)</button>
+      <p id="status" class="status">Chưa có dữ liệu.</p>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>SKU</th><th>Ảnh</th><th>Tên sản phẩm</th><th>Danh mục</th><th>Giá</th><th>Giảm</th><th>Giá bán</th><th>Màu sắc</th><th>Size</th><th>Tồn kho</th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+
+    <!-- Nhân viên -->
+    <section id="view-employees">
+      <h2>Nhân viên (data/employees.json)</h2>
+      <p class="status" id="status-employees"></p>
+      <table>
+        <thead><tr><th>Mã NV</th><th>Họ tên</th><th>Chức vụ</th><th>Role</th><th>Username</th><th>Email</th><th>Trạng thái</th></tr></thead>
+        <tbody id="tbody-employees"></tbody>
+      </table>
+    </section>
+
+    <!-- Khách hàng -->
+    <section id="view-customers">
+      <h2>Khách hàng (data/customers.json)</h2>
+      <p class="status" id="status-customers"></p>
+      <table>
+        <thead><tr><th>Mã KH</th><th>Họ tên</th><th>SĐT</th><th>Địa chỉ</th><th>Username</th><th>Hạng</th><th>Trạng thái</th></tr></thead>
+        <tbody id="tbody-customers"></tbody>
+      </table>
+    </section>
+
+    <!-- Hóa đơn -->
+    <section id="view-carts">
+      <h2>Hóa đơn (data/carts.xml)</h2>
+      <p class="status" id="status-carts"></p>
+      <table>
+        <thead><tr><th>Mã HĐ</th><th>Ngày đặt</th><th>Nhân viên</th><th>Khách hàng</th><th>Số dòng CT</th><th>Thanh toán</th><th>Trạng thái</th><th>Tổng (USD)</th></tr></thead>
+        <tbody id="tbody-carts"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- FOOTER: sửa Họ tên và MSSV tại đây -->
+  <footer>
+    Sinh viên thực hiện: <b id="svName">Lê Uyên Nhi</b> - MSSV: <b id="svId">K244161801</b>
+  </footer>
+
+  <script>
+    const API_URL = "https://fakestoreapi.com/products";
+    const LS_PRODUCTS = "cau1_products";   // khóa localStorage lưu danh sách sản phẩm
+    const LS_VIEW = "cau1_view";           // khóa localStorage lưu menu đang chọn
+    let products = [];
+
+    // ===================== localStorage =====================
+    function lsGet(key) {
+      try { return localStorage.getItem(key); } catch (e) { return null; }
+    }
+    function lsSet(key, value) {
+      try { localStorage.setItem(key, value); } catch (e) { /* bỏ qua nếu trình duyệt chặn */ }
+    }
+    function lsRemove(key) {
+      try { localStorage.removeItem(key); } catch (e) { }
+    }
+
+    // ===================== MENU =====================
+    const loaded = {};
+    function showView(name) {
+      if (!document.getElementById("view-" + name)) name = "products";
+      document.querySelectorAll("main section").forEach(function (s) { s.classList.remove("show"); });
+      document.getElementById("view-" + name).classList.add("show");
+      document.querySelectorAll("#menu a").forEach(function (a) {
+        a.classList.toggle("active", a.dataset.view === name);
+      });
+      lsSet(LS_VIEW, name);                 // ghi nhớ menu đang chọn
+      if (!loaded[name] && VIEW_LOADERS[name]) { loaded[name] = true; VIEW_LOADERS[name](); }
+    }
+    document.querySelectorAll("#menu a").forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); showView(a.dataset.view); });
+    });
+
+    // ===================== Sản phẩm =====================
+    // Bảng màu theo danh mục
+    const PALETTE = {
+      "men's clothing":   [["Đen", "#000000"], ["Xanh navy", "#1F3A93"], ["Xám", "#808080"], ["Nâu", "#8B4513"], ["Trắng", "#FFFFFF"]],
+      "women's clothing": [["Đỏ", "#E53935"], ["Hồng", "#F48FB1"], ["Trắng", "#FFFFFF"], ["Tím", "#8E24AA"], ["Be", "#F5F5DC"]],
+      "jewelery":         [["Vàng", "#FFD700"], ["Bạc", "#C0C0C0"], ["Vàng hồng", "#B76E79"]],
+      "electronics":      [["Đen", "#000000"], ["Trắng", "#FFFFFF"], ["Xám bạc", "#A9A9A9"], ["Xanh dương", "#1E88E5"]]
+    };
+    const SIZES = { "men's clothing": ["S", "M", "L", "XL"], "women's clothing": ["S", "M", "L"] };
+    const CAT_CODE = { "men's clothing": "MEN", "women's clothing": "WOM", "jewelery": "JEW", "electronics": "ELE" };
+
+    // Bổ sung thuộc tính: colors, sizes, sku, discount, salePrice, stock, sold, status...
+    function enrich(p) {
+      const pal = PALETTE[p.category] || [["Mặc định", "#CCCCCC"]];
+      const n = 2 + (p.id % 2);
+      const colors = [];
+      for (let i = 0; i < n && i < pal.length; i++) {
+        const [name, hex] = pal[(p.id + i) % pal.length];
+        colors.push({ name: name, hex: hex, stock: 5 + ((p.id * 7 + i * 3) % 20) });
+      }
+      const stock = colors.reduce((s, c) => s + c.stock, 0);
+      const discount = [0, 5, 10, 15, 20][p.id % 5];
+      return {
+        id: p.id,
+        sku: "SP" + String(p.id).padStart(3, "0") + "-" + (CAT_CODE[p.category] || "OTH"),
+        title: p.title.trim(),
+        price: p.price,
+        discount: discount,
+        salePrice: +(p.price * (1 - discount / 100)).toFixed(2),
+        currency: "USD",
+        description: p.description,
+        category: p.category,
+        image: p.image,
+        colors: colors,
+        sizes: SIZES[p.category] || [],
+        stock: stock,
+        sold: (p.id * 13) % 60,
+        rating: p.rating,
+        status: stock > 0 ? "active" : "out_of_stock",
+        isFeatured: p.rating.rate >= 4.5,
+        createdAt: "2026-0" + (1 + (p.id % 9)) + "-" + String(1 + (p.id % 28)).padStart(2, "0")
+      };
+    }
+
+    function setProducts(list, message) {
+      products = list;
+      renderTable(products);
+      document.getElementById("status").textContent = message;
+      document.getElementById("btnSave").disabled = false;
+      document.getElementById("btnSaveXml").disabled = false;
+    }
+
+    // Đọc dữ liệu bằng XMLHttpRequest
+    function loadData() {
+      const status = document.getElementById("status");
+      status.textContent = "Đang tải dữ liệu...";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", API_URL, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const raw = JSON.parse(xhr.responseText);
+            const list = raw.map(enrich);
+            lsSet(LS_PRODUCTS, JSON.stringify(list));   // lưu tạm vào localStorage
+            setProducts(list, "Đã đọc " + list.length + " sản phẩm, bổ sung màu sắc và tồn kho (đã lưu tạm vào localStorage).");
+          } else {
+            status.textContent = "Lỗi tải dữ liệu: " + xhr.status;
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    // Hiển thị bằng DOM (createElement / appendChild)
+    function renderTable(list) {
+      const tbody = document.getElementById("tbody");
+      while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+
+      list.forEach(function (p) {
+        const tr = document.createElement("tr");
+
+        function addCell(text) {
+          const td = document.createElement("td");
+          td.appendChild(document.createTextNode(text));
+          tr.appendChild(td);
+          return td;
+        }
+
+        addCell(p.id);
+        addCell(p.sku);
+
+        const tdImg = document.createElement("td");
+        const img = document.createElement("img");
+        img.setAttribute("src", p.image);
+        img.setAttribute("alt", p.title);
+        tdImg.appendChild(img);
+        tr.appendChild(tdImg);
+
+        addCell(p.title);
+        addCell(p.category);
+        addCell("$" + p.price);
+        addCell(p.discount + "%");
+        addCell("$" + p.salePrice);
+
+        const tdColor = document.createElement("td");
+        p.colors.forEach(function (c) {
+          const sw = document.createElement("span");
+          sw.className = "swatch";
+          sw.style.backgroundColor = c.hex;
+          sw.title = c.name + " (" + c.stock + ")";
+          tdColor.appendChild(sw);
+          tdColor.appendChild(document.createTextNode(c.name + " "));
+        });
+        tr.appendChild(tdColor);
+
+        addCell(p.sizes.join(", ") || "-");
+        addCell(p.stock);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Dựng tài liệu XML bằng mô hình DOM (createDocument / createElement / setAttribute)
+    function buildXml(list) {
+      const xmlDoc = document.implementation.createDocument(null, "products", null);
+      const root = xmlDoc.documentElement;
+
+      function addNode(parent, tag, text, attrs) {
+        const el = xmlDoc.createElement(tag);
+        if (attrs) for (const k in attrs) el.setAttribute(k, attrs[k]);
+        if (text !== undefined && text !== null) el.appendChild(xmlDoc.createTextNode(text));
+        parent.appendChild(el);
+        return el;
+      }
+
+      list.forEach(function (p) {
+        const prod = addNode(root, "product", null, {
+          id: p.id, sku: p.sku, category: p.category, status: p.status, featured: p.isFeatured
+        });
+        addNode(prod, "title", p.title);
+        addNode(prod, "price", p.price, { currency: p.currency });
+        addNode(prod, "discount", p.discount);
+        addNode(prod, "salePrice", p.salePrice);
+        addNode(prod, "description", p.description);
+        addNode(prod, "image", p.image);
+
+        const colors = addNode(prod, "colors");           // màu sắc
+        p.colors.forEach(function (c) {
+          addNode(colors, "color", c.name, { hex: c.hex, stock: c.stock });  // tồn kho theo màu
+        });
+
+        const sizes = addNode(prod, "sizes");
+        p.sizes.forEach(function (s) { addNode(sizes, "size", s); });
+
+        addNode(prod, "stock", p.stock);                  // tổng tồn kho
+        addNode(prod, "sold", p.sold);
+        addNode(prod, "rating", null, { rate: p.rating.rate, count: p.rating.count });
+        addNode(prod, "createdAt", p.createdAt);
+      });
+
+      return '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(xmlDoc);
+    }
+
+    // Tải file về máy
+    function download(content, filename, type) {
+      const blob = new Blob([content], { type: type });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function saveXml()  { download(buildXml(products), "products.xml", "application/xml"); }
+    function saveJson() { download(JSON.stringify(products, null, 2), "products.json", "application/json"); }
+
+    function clearTemp() {
+      lsRemove(LS_PRODUCTS);
+      products = [];
+      renderTable(products);
+      document.getElementById("status").textContent = "Đã xóa dữ liệu tạm trong localStorage.";
+      document.getElementById("btnSave").disabled = true;
+      document.getElementById("btnSaveXml").disabled = true;
+    }
+
+    document.getElementById("btnLoad").addEventListener("click", loadData);
+    document.getElementById("btnSaveXml").addEventListener("click", saveXml);
+    document.getElementById("btnSave").addEventListener("click", saveJson);
+    document.getElementById("btnClear").addEventListener("click", clearTemp);
+
+    // ===================== Nhân viên / Khách hàng / Hóa đơn =====================
+    function fillRows(tbodyId, rows) {
+      const tbody = document.getElementById(tbodyId);
+      while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+      rows.forEach(function (r) {
+        const tr = document.createElement("tr");
+        r.forEach(function (v) {
+          const td = document.createElement("td");
+          td.appendChild(document.createTextNode(v));
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+    function loadFail(id, file) {
+      document.getElementById(id).textContent = "Không đọc được " + file + ". Hãy mở trang bằng Live Server.";
+    }
+
+    const VIEW_LOADERS = {
+      employees: function () {
+        fetch("data/employees.json").then(r => r.json()).then(function (list) {
+          fillRows("tbody-employees", list.map(e => [e.id, e.fullName, e.position, e.role, e.account.username, e.email, e.status]));
+          document.getElementById("status-employees").textContent = "Có " + list.length + " nhân viên.";
+        }).catch(() => loadFail("status-employees", "data/employees.json"));
+      },
+      customers: function () {
+        fetch("data/customers.json").then(r => r.json()).then(function (list) {
+          fillRows("tbody-customers", list.map(c => [c.id, c.fullName, c.phone,
+            [c.address.street, c.address.ward, c.address.district, c.address.city].join(", "),
+            c.account.username, c.membership.tier, c.status]));
+          document.getElementById("status-customers").textContent = "Có " + list.length + " khách hàng.";
+        }).catch(() => loadFail("status-customers", "data/customers.json"));
+      },
+      carts: function () {
+        fetch("data/carts.xml").then(r => r.text()).then(function (text) {
+          const xml = new DOMParser().parseFromString(text, "application/xml");
+          const inv = Array.from(xml.getElementsByTagName("invoice"));
+          fillRows("tbody-carts", inv.map(function (i) {
+            const g = t => i.getElementsByTagName(t)[0];
+            return [i.getAttribute("id"), g("orderDate").textContent.replace("T", " "),
+              g("employee").getAttribute("id") + " - " + g("employee").textContent,
+              g("customer").getAttribute("id") + " - " + g("customer").textContent,
+              i.getElementsByTagName("item").length, g("payment").getAttribute("method"),
+              i.getAttribute("status"), g("total").textContent];
+          }));
+          document.getElementById("status-carts").textContent = "Có " + inv.length + " hóa đơn.";
+        }).catch(() => loadFail("status-carts", "data/carts.xml"));
+      }
+    };
+
+    // ===================== Khởi động =====================
+    // Nạp lại sản phẩm đã lưu tạm (nếu có)
+    const saved = lsGet(LS_PRODUCTS);
+    if (saved) {
+      try {
+        const list = JSON.parse(saved);
+        setProducts(list, "Đã nạp " + list.length + " sản phẩm từ localStorage (dữ liệu lưu tạm lần trước).");
+      } catch (e) { lsRemove(LS_PRODUCTS); }
+    }
+    showView(location.hash.slice(1) || lsGet(LS_VIEW) || "products");
+  </script>
+</body>
+</html>

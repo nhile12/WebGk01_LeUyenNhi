@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE invoices [
+  <!ELEMENT invoices (invoice+)>
+  <!ELEMENT invoice (orderDate, employee, customer, shipping, payment, details, summary, note?)>
+  <!ATTLIST invoice id ID #REQUIRED status (pending|confirmed|shipping|completed|cancelled) "pending">
+  <!ELEMENT orderDate (#PCDATA)>
+  <!ELEMENT employee (#PCDATA)>
+  <!ATTLIST employee id CDATA #REQUIRED>
+  <!ELEMENT customer (#PCDATA)>
+  <!ATTLIST customer id CDATA #REQUIRED>
+  <!ELEMENT shipping (receiver, phone, address, fee)>
+  <!ELEMENT receiver (#PCDATA)>
+  <!ELEMENT phone (#PCDATA)>
+  <!ELEMENT address (#PCDATA)>
+  <!ELEMENT fee (#PCDATA)>
+  <!ELEMENT payment (#PCDATA)>
+  <!ATTLIST payment method (COD|BANKING|MOMO|VNPAY) "COD" paid (true|false) "false">
+  <!ELEMENT details (item+)>
+  <!ELEMENT item (productName, color, size?, quantity, unitPrice, discount, lineTotal)>
+  <!ATTLIST item no CDATA #REQUIRED productId CDATA #REQUIRED sku CDATA #REQUIRED>
+  <!ELEMENT productName (#PCDATA)>
+  <!ELEMENT color (#PCDATA)>
+  <!ATTLIST color hex CDATA #IMPLIED>
+  <!ELEMENT size (#PCDATA)>
+  <!ELEMENT quantity (#PCDATA)>
+  <!ELEMENT unitPrice (#PCDATA)>
+  <!ELEMENT discount (#PCDATA)>
+  <!ELEMENT lineTotal (#PCDATA)>
+  <!ELEMENT summary (subTotal, shippingFee, total)>
+  <!ATTLIST summary currency CDATA "USD">
+  <!ELEMENT subTotal (#PCDATA)>
+  <!ELEMENT shippingFee (#PCDATA)>
+  <!ELEMENT total (#PCDATA)>
+  <!ELEMENT note (#PCDATA)>
+]>
+<invoices>
+  <invoice id="HD001" status="completed">
+    <orderDate>2026-10-02T09:17:00</orderDate>
+    <employee id="NV003">Lê Văn Hùng</employee>
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <shipping>
+      <receiver>Nguyễn Văn An</receiver>
+      <phone>0901234561</phone>
+      <address>12 Lê Lợi, P. Bến Nghé, Q.1, TP.HCM</address>
+      <fee>0.00</fee>
+    </shipping>
+    <payment method="BANKING" paid="true">Thanh toán trực tuyến</payment>
+    <details>
+      <item no="1" productId="4" sku="SP004-MEN">
+        <productName>Mens Casual Slim Fit</productName>
+        <color hex="#FFFFFF">Trắng</color>
+        <size>M</size>
+        <quantity>2</quantity>
+        <unitPrice>15.99</unitPrice>
+        <discount>20</discount>
+        <lineTotal>25.58</lineTotal>
+      </item>
+      <item no="2" productId="11" sku="SP011-ELE">
+        <productName>Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5</productName>
+        <color hex="#000000">Đen</color>
+        <quantity>3</quantity>
+        <unitPrice>109</unitPrice>
+        <discount>5</discount>
+        <lineTotal>310.65</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>336.23</subTotal>
+      <shippingFee>0.00</shippingFee>
+      <total>336.23</total>
+    </summary>
+  </invoice>
+  <invoice id="HD002" status="shipping">
+    <orderDate>2026-10-04T10:34:00</orderDate>
+    <employee id="NV004">Phạm Ngọc Lan</employee>
+    <customer id="KH002">Trần Thị Bình</customer>
+    <shipping>
+      <receiver>Trần Thị Bình</receiver>
+      <phone>0901234562</phone>
+      <address>45 Nguyễn Trãi, P.2, Q.5, TP.HCM</address>
+      <fee>0.00</fee>
+    </shipping>
+    <payment method="MOMO" paid="true">Thanh toán trực tuyến</payment>
+    <details>
+      <item no="1" productId="7" sku="SP007-JEW">
+        <productName>White Gold Plated Princess</productName>
+        <color hex="#C0C0C0">Bạc</color>
+        <quantity>3</quantity>
+        <unitPrice>9.99</unitPrice>
+        <discount>10</discount>
+        <lineTotal>26.97</lineTotal>
+      </item>
+      <item no="2" productId="14" sku="SP014-ELE">
+        <productName>Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED</productName>
+        <color hex="#1E88E5">Xanh dương</color>
+        <quantity>1</quantity>
+        <unitPrice>999.99</unitPrice>
+        <discount>20</discount>
+        <lineTotal>799.99</lineTotal>
+      </item>
+      <item no="3" productId="1" sku="SP001-MEN">
+        <productName>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</productName>
+        <color hex="#8B4513">Nâu</color>
+        <size>S</size>
+        <quantity>2</quantity>
+        <unitPrice>109.95</unitPrice>
+        <discount>5</discount>
+        <lineTotal>208.90</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>1035.86</subTotal>
+      <shippingFee>0.00</shippingFee>
+      <total>1035.86</total>
+    </summary>
+  </invoice>
+  <invoice id="HD003" status="confirmed">
+    <orderDate>2026-10-06T11:51:00</orderDate>
+    <employee id="NV002">Trần Thị Mai</employee>
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <shipping>
+      <receiver>Lê Hoàng Cường</receiver>
+      <phone>0901234563</phone>
+      <address>78 Võ Văn Ngân, P. Linh Chiểu, TP. Thủ Đức, TP.HCM</address>
+      <fee>2.50</fee>
+    </shipping>
+    <payment method="COD" paid="false">Thanh toán khi nhận hàng</payment>
+    <details>
+      <item no="1" productId="10" sku="SP010-ELE">
+        <productName>SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s</productName>
+        <color hex="#A9A9A9">Xám bạc</color>
+        <quantity>1</quantity>
+        <unitPrice>109</unitPrice>
+        <discount>0</discount>
+        <lineTotal>109.00</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>109.00</subTotal>
+      <shippingFee>2.50</shippingFee>
+      <total>111.50</total>
+    </summary>
+  </invoice>
+  <invoice id="HD004" status="pending">
+    <orderDate>2026-10-08T12:08:00</orderDate>
+    <employee id="NV003">Lê Văn Hùng</employee>
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <shipping>
+      <receiver>Phạm Thu Dung</receiver>
+      <phone>0901234564</phone>
+      <address>9 Trần Hưng Đạo, P. Phạm Ngũ Lão, Q.1, TP.HCM</address>
+      <fee>0.00</fee>
+    </shipping>
+    <payment method="VNPAY" paid="false">Thanh toán trực tuyến</payment>
+    <details>
+      <item no="1" productId="13" sku="SP013-ELE">
+        <productName>Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin</productName>
+        <color hex="#FFFFFF">Trắng</color>
+        <quantity>2</quantity>
+        <unitPrice>599</unitPrice>
+        <discount>15</discount>
+        <lineTotal>1018.30</lineTotal>
+      </item>
+      <item no="2" productId="20" sku="SP020-WOM">
+        <productName>DANVOUY Womens T Shirt Casual Cotton Short</productName>
+        <color hex="#F48FB1">Hồng</color>
+        <size>L</size>
+        <quantity>3</quantity>
+        <unitPrice>12.99</unitPrice>
+        <discount>0</discount>
+        <lineTotal>38.97</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>1057.27</subTotal>
+      <shippingFee>0.00</shippingFee>
+      <total>1057.27</total>
+    </summary>
+  </invoice>
+  <invoice id="HD005" status="cancelled">
+    <orderDate>2026-10-10T13:25:00</orderDate>
+    <employee id="NV004">Phạm Ngọc Lan</employee>
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <shipping>
+      <receiver>Hoàng Minh Em</receiver>
+      <phone>0901234565</phone>
+      <address>102 Cách Mạng Tháng 8, P.10, Q.3, TP.HCM</address>
+      <fee>0.00</fee>
+    </shipping>
+    <payment method="COD" paid="false">Thanh toán khi nhận hàng</payment>
+    <details>
+      <item no="1" productId="16" sku="SP016-WOM">
+        <productName>Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket</productName>
+        <color hex="#F48FB1">Hồng</color>
+        <size>L</size>
+        <quantity>3</quantity>
+        <unitPrice>29.95</unitPrice>
+        <discount>5</discount>
+        <lineTotal>85.35</lineTotal>
+      </item>
+      <item no="2" productId="3" sku="SP003-MEN">
+        <productName>Mens Cotton Jacket</productName>
+        <color hex="#FFFFFF">Trắng</color>
+        <size>L</size>
+        <quantity>1</quantity>
+        <unitPrice>55.99</unitPrice>
+        <discount>15</discount>
+        <lineTotal>47.59</lineTotal>
+      </item>
+      <item no="3" productId="10" sku="SP010-ELE">
+        <productName>SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s</productName>
+        <color hex="#A9A9A9">Xám bạc</color>
+        <quantity>2</quantity>
+        <unitPrice>109</unitPrice>
+        <discount>0</discount>
+        <lineTotal>218.00</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>350.94</subTotal>
+      <shippingFee>0.00</shippingFee>
+      <total>350.94</total>
+    </summary>
+    <note>Khách hàng hủy đơn do đổi ý</note>
+  </invoice>
+  <invoice id="HD006" status="completed">
+    <orderDate>2026-10-12T14:42:00</orderDate>
+    <employee id="NV002">Trần Thị Mai</employee>
+    <customer id="KH001">Nguyễn Văn An</customer>
+    <shipping>
+      <receiver>Nguyễn Văn An</receiver>
+      <phone>0901234561</phone>
+      <address>12 Lê Lợi, P. Bến Nghé, Q.1, TP.HCM</address>
+      <fee>2.50</fee>
+    </shipping>
+    <payment method="BANKING" paid="true">Thanh toán trực tuyến</payment>
+    <details>
+      <item no="1" productId="19" sku="SP019-WOM">
+        <productName>Opna Women's Short Sleeve Moisture</productName>
+        <color hex="#F5F5DC">Be</color>
+        <size>S</size>
+        <quantity>1</quantity>
+        <unitPrice>7.95</unitPrice>
+        <discount>20</discount>
+        <lineTotal>6.36</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>6.36</subTotal>
+      <shippingFee>2.50</shippingFee>
+      <total>8.86</total>
+    </summary>
+  </invoice>
+  <invoice id="HD007" status="completed">
+    <orderDate>2026-10-14T15:59:00</orderDate>
+    <employee id="NV003">Lê Văn Hùng</employee>
+    <customer id="KH002">Trần Thị Bình</customer>
+    <shipping>
+      <receiver>Trần Thị Bình</receiver>
+      <phone>0901234562</phone>
+      <address>45 Nguyễn Trãi, P.2, Q.5, TP.HCM</address>
+      <fee>2.50</fee>
+    </shipping>
+    <payment method="MOMO" paid="true">Thanh toán trực tuyến</payment>
+    <details>
+      <item no="1" productId="2" sku="SP002-MEN">
+        <productName>Mens Casual Premium Slim Fit T-Shirts</productName>
+        <color hex="#808080">Xám</color>
+        <size>XL</size>
+        <quantity>2</quantity>
+        <unitPrice>22.3</unitPrice>
+        <discount>10</discount>
+        <lineTotal>40.14</lineTotal>
+      </item>
+      <item no="2" productId="9" sku="SP009-ELE">
+        <productName>WD 2TB Elements Portable External Hard Drive - USB 3.0</productName>
+        <color hex="#A9A9A9">Xám bạc</color>
+        <quantity>3</quantity>
+        <unitPrice>64</unitPrice>
+        <discount>20</discount>
+        <lineTotal>153.60</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>193.74</subTotal>
+      <shippingFee>2.50</shippingFee>
+      <total>196.24</total>
+    </summary>
+  </invoice>
+  <invoice id="HD008" status="shipping">
+    <orderDate>2026-10-16T16:16:00</orderDate>
+    <employee id="NV004">Phạm Ngọc Lan</employee>
+    <customer id="KH003">Lê Hoàng Cường</customer>
+    <shipping>
+      <receiver>Lê Hoàng Cường</receiver>
+      <phone>0901234563</phone>
+      <address>78 Võ Văn Ngân, P. Linh Chiểu, TP. Thủ Đức, TP.HCM</address>
+      <fee>0.00</fee>
+    </shipping>
+    <payment method="COD" paid="false">Thanh toán khi nhận hàng</payment>
+    <details>
+      <item no="1" productId="5" sku="SP005-JEW">
+        <productName>John Hardy Women's Legends Naga Gold &amp; Silver Dragon Station Chain Bracelet</productName>
+        <color hex="#B76E79">Vàng hồng</color>
+        <quantity>3</quantity>
+        <unitPrice>695</unitPrice>
+        <discount>0</discount>
+        <lineTotal>2085.00</lineTotal>
+      </item>
+      <item no="2" productId="12" sku="SP012-ELE">
+        <productName>WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive</productName>
+        <color hex="#FFFFFF">Trắng</color>
+        <quantity>1</quantity>
+        <unitPrice>114</unitPrice>
+        <discount>10</discount>
+        <lineTotal>102.60</lineTotal>
+      </item>
+      <item no="3" productId="19" sku="SP019-WOM">
+        <productName>Opna Women's Short Sleeve Moisture</productName>
+        <color hex="#F48FB1">Hồng</color>
+        <size>M</size>
+        <quantity>2</quantity>
+        <unitPrice>7.95</unitPrice>
+        <discount>20</discount>
+        <lineTotal>12.72</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>2200.32</subTotal>
+      <shippingFee>0.00</shippingFee>
+      <total>2200.32</total>
+    </summary>
+  </invoice>
+  <invoice id="HD009" status="confirmed">
+    <orderDate>2026-10-18T17:33:00</orderDate>
+    <employee id="NV002">Trần Thị Mai</employee>
+    <customer id="KH004">Phạm Thu Dung</customer>
+    <shipping>
+      <receiver>Phạm Thu Dung</receiver>
+      <phone>0901234564</phone>
+      <address>9 Trần Hưng Đạo, P. Phạm Ngũ Lão, Q.1, TP.HCM</address>
+      <fee>2.50</fee>
+    </shipping>
+    <payment method="VNPAY" paid="true">Thanh toán trực tuyến</payment>
+    <details>
+      <item no="1" productId="8" sku="SP008-JEW">
+        <productName>Pierced Owl Rose Gold Plated Stainless Steel Double</productName>
+        <color hex="#B76E79">Vàng hồng</color>
+        <quantity>1</quantity>
+        <unitPrice>10.99</unitPrice>
+        <discount>15</discount>
+        <lineTotal>9.34</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>9.34</subTotal>
+      <shippingFee>2.50</shippingFee>
+      <total>11.84</total>
+    </summary>
+  </invoice>
+  <invoice id="HD010" status="pending">
+    <orderDate>2026-10-20T18:50:00</orderDate>
+    <employee id="NV003">Lê Văn Hùng</employee>
+    <customer id="KH005">Hoàng Minh Em</customer>
+    <shipping>
+      <receiver>Hoàng Minh Em</receiver>
+      <phone>0901234565</phone>
+      <address>102 Cách Mạng Tháng 8, P.10, Q.3, TP.HCM</address>
+      <fee>0.00</fee>
+    </shipping>
+    <payment method="COD" paid="false">Thanh toán khi nhận hàng</payment>
+    <details>
+      <item no="1" productId="11" sku="SP011-ELE">
+        <productName>Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5</productName>
+        <color hex="#1E88E5">Xanh dương</color>
+        <quantity>2</quantity>
+        <unitPrice>109</unitPrice>
+        <discount>5</discount>
+        <lineTotal>207.10</lineTotal>
+      </item>
+      <item no="2" productId="18" sku="SP018-WOM">
+        <productName>MBJ Women's Solid Short Sleeve Boat Neck V</productName>
+        <color hex="#F5F5DC">Be</color>
+        <size>L</size>
+        <quantity>3</quantity>
+        <unitPrice>9.85</unitPrice>
+        <discount>15</discount>
+        <lineTotal>25.11</lineTotal>
+      </item>
+    </details>
+    <summary currency="USD">
+      <subTotal>232.21</subTotal>
+      <shippingFee>0.00</shippingFee>
+      <total>232.21</total>
+    </summary>
+  </invoice>
+</invoices>

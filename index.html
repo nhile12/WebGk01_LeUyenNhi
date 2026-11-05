@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UELShop - Mini-Project Website Bán Hàng">
+  <title>UELShop - Trang chủ</title>
+  <style>
+    :root { --primary: #1abc9c; --primary-dark: #16a085; --dark: #2c3e50; --dark-2: #34495e; --bg: #f4f6f8; --muted: #7f8c8d; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: #2d3436; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--dark); color: #fff; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    .logo { color: #fff; font-size: 26px; font-weight: bold; text-decoration: none; }
+    .logo span { color: var(--primary); }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav a { display: block; padding: 10px 14px; color: #ecf0f1; text-decoration: none; border-radius: 6px; }
+    nav a:hover, nav a.active { background: var(--primary); }
+    main { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .hero { background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%); color: #fff; border-radius: 14px; padding: 48px 32px; text-align: center; }
+    .hero h1 { margin: 0 0 10px; font-size: 34px; }
+    .hero p { margin: 0 0 22px; color: #dfe6e9; }
+    .cta { display: inline-block; background: var(--primary); color: #fff; padding: 12px 26px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+    .cta:hover { background: #fff; color: var(--primary-dark); }
+    h2 { color: var(--dark); margin: 32px 0 14px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); padding: 22px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
+    .card .icon { font-size: 34px; }
+    .card h3 { margin: 0; color: var(--dark); }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .card span.go { margin-top: auto; color: var(--primary-dark); font-weight: bold; font-size: 14px; }
+    .tasks { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: hidden; }
+    .tasks table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .tasks th, .tasks td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eef0f2; }
+    .tasks th { background: #f8f9fa; color: var(--dark-2); }
+    .tasks a { color: var(--primary-dark); }
+    footer { background: var(--dark); color: #ecf0f1; text-align: center; padding: 16px; margin-top: 32px; }
+    footer p { margin: 4px 0; }
+    @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) {
+      header { padding: 12px 16px; }
+      main { padding: 16px; }
+      .hero { padding: 32px 18px; }
+      .hero h1 { font-size: 26px; }
+      .cards { grid-template-columns: 1fr; }
+      .tasks { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">UEL<span>Shop</span></a>
+    <nav aria-label="Menu chính">
+      <ul>
+        <li><a href="index.html" class="active" aria-current="page">Trang chủ</a></li>
+        <li><a href="products.html">Cửa hàng</a></li>
+        <li><a href="fetch_products.html">Dữ liệu JSON/XML</a></li>
+        <li><a href="admin.html">Quản trị</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <h1 id="heroTitle">Mini-Project Website Bán Hàng</h1>
+      <p>Thời trang, trang sức và đồ điện tử - dữ liệu từ Fake Store API, lưu trữ bằng JSON/XML.</p>
+      <a href="products.html" class="cta">Mua sắm ngay →</a>
+    </section>
+
+    <section aria-labelledby="pagesTitle">
+      <h2 id="pagesTitle">Các trang của website</h2>
+      <div class="cards">
+        <a href="products.html" class="card">
+          <span class="icon">🛍</span>
+          <h3>Cửa hàng</h3>
+          <p>Danh sách sản phẩm dạng lưới, tìm kiếm nâng cao, đánh giá, giỏ hàng và thanh toán.</p>
+          <span class="go">Mở cửa hàng ›</span>
+        </a>
+        <a href="fetch_products.html" class="card">
+          <span class="icon">🗂</span>
+          <h3>Dữ liệu JSON/XML</h3>
+          <p>Đọc dữ liệu từ API bằng DOM, bổ sung màu sắc, tồn kho và lưu ra products.xml.</p>
+          <span class="go">Xem dữ liệu ›</span>
+        </a>
+        <a href="admin.html" class="card">
+          <span class="icon">📊</span>
+          <h3>Quản trị (Admin)</h3>
+          <p>Đăng nhập nhân viên, quản lý đơn hàng, thống kê doanh thu và sản phẩm bán ra.</p>
+          <span class="go">Đăng nhập ›</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="tasksTitle">
+      <h2 id="tasksTitle">Nội dung bài làm</h2>
+      <div class="tasks">
+        <table>
+          <thead><tr><th>Câu</th><th>Nội dung</th><th>Trang</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Thiết kế cấu trúc dữ liệu JSON/XML</td><td><a href="fetch_products.html">fetch_products.html</a></td></tr>
+            <tr><td>2</td><td>Layout Semantic HTML5, form tìm kiếm nâng cao</td><td><a href="products.html">products.html</a></td></tr>
+            <tr><td>3</td><td>CSS Grid/Flexbox, Responsive, Skeleton Loading</td><td><a href="products.html">products.html</a></td></tr>
+            <tr><td>4</td><td>Event Delegation: Thêm vào giỏ hàng, Xem nhanh</td><td><a href="products.html">products.html</a></td></tr>
+            <tr><td>5</td><td>Xử lý XML đánh giá (DOMParser), Rating Detail</td><td><a href="products.html">products.html</a></td></tr>
+            <tr><td>6</td><td>Quản lý state giỏ hàng, Mini-cart</td><td><a href="products.html">products.html</a></td></tr>
+            <tr><td>7</td><td>Validation Regex, thanh toán giả lập</td><td><a href="products.html">products.html</a></td></tr>
+            <tr><td>8</td><td>Quản lý đơn hàng ADMIN, thống kê, đăng nhập</td><td><a href="admin.html">admin.html</a></td></tr>
+            <tr><td>9</td><td>Xuất bản lên GitHub Pages, trang chủ index.html</td><td><a href="index.html">index.html</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sinh viên thực hiện: <strong>Lê Uyên Nhi</strong> - MSSV: <strong>K244161801</strong></p>
+    <p><small>Mini-Project Website Bán Hàng - Phát triển Web Kinh doanh</small></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product id="1" sku="SP001-MEN" category="men's clothing" status="active" featured="false">
+    <title>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</title>
+    <price currency="USD">109.95</price>
+    <discount>5</discount>
+    <salePrice>104.45</salePrice>
+    <description>Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday</description>
+    <image>https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png</image>
+    <colors>
+      <color hex="#1F3A93" stock="12">Xanh navy</color>
+      <color hex="#808080" stock="15">Xám</color>
+      <color hex="#8B4513" stock="18">Nâu</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+      <size>XL</size>
+    </sizes>
+    <stock>45</stock>
+    <sold>13</sold>
+    <rating rate="3.9" count="120"/>
+    <createdAt>2026-02-02</createdAt>
+  </product>
+  <product id="2" sku="SP002-MEN" category="men's clothing" status="active" featured="false">
+    <title>Mens Casual Premium Slim Fit T-Shirts</title>
+    <price currency="USD">22.3</price>
+    <discount>10</discount>
+    <salePrice>20.07</salePrice>
+    <description>Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight &amp; soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.</description>
+    <image>https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png</image>
+    <colors>
+      <color hex="#808080" stock="19">Xám</color>
+      <color hex="#8B4513" stock="22">Nâu</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+      <size>XL</size>
+    </sizes>
+    <stock>41</stock>
+    <sold>26</sold>
+    <rating rate="4.1" count="259"/>
+    <createdAt>2026-03-03</createdAt>
+  </product>
+  <product id="3" sku="SP003-MEN" category="men's clothing" status="active" featured="true">
+    <title>Mens Cotton Jacket</title>
+    <price currency="USD">55.99</price>
+    <discount>15</discount>
+    <salePrice>47.59</salePrice>
+    <description>great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.</description>
+    <image>https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png</image>
+    <colors>
+      <color hex="#8B4513" stock="6">Nâu</color>
+      <color hex="#FFFFFF" stock="9">Trắng</color>
+      <color hex="#000000" stock="12">Đen</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+      <size>XL</size>
+    </sizes>
+    <stock>27</stock>
+    <sold>39</sold>
+    <rating rate="4.7" count="500"/>
+    <createdAt>2026-04-04</createdAt>
+  </product>
+  <product id="4" sku="SP004-MEN" category="men's clothing" status="active" featured="false">
+    <title>Mens Casual Slim Fit</title>
+    <price currency="USD">15.99</price>
+    <discount>20</discount>
+    <salePrice>12.79</salePrice>
+    <description>The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.</description>
+    <image>https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png</image>
+    <colors>
+      <color hex="#FFFFFF" stock="13">Trắng</color>
+      <color hex="#000000" stock="16">Đen</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+      <size>XL</size>
+    </sizes>
+    <stock>29</stock>
+    <sold>52</sold>
+    <rating rate="2.1" count="430"/>
+    <createdAt>2026-05-05</createdAt>
+  </product>
+  <product id="5" sku="SP005-JEW" category="jewelery" status="active" featured="true">
+    <title>John Hardy Women's Legends Naga Gold &amp; Silver Dragon Station Chain Bracelet</title>
+    <price currency="USD">695</price>
+    <discount>0</discount>
+    <salePrice>695</salePrice>
+    <description>From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.</description>
+    <image>https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png</image>
+    <colors>
+      <color hex="#B76E79" stock="20">Vàng hồng</color>
+      <color hex="#FFD700" stock="23">Vàng</color>
+      <color hex="#C0C0C0" stock="6">Bạc</color>
+    </colors>
+    <sizes/>
+    <stock>49</stock>
+    <sold>5</sold>
+    <rating rate="4.6" count="400"/>
+    <createdAt>2026-06-06</createdAt>
+  </product>
+  <product id="6" sku="SP006-JEW" category="jewelery" status="active" featured="false">
+    <title>Solid Gold Petite Micropave</title>
+    <price currency="USD">168</price>
+    <discount>5</discount>
+    <salePrice>159.6</salePrice>
+    <description>Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.</description>
+    <image>https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png</image>
+    <colors>
+      <color hex="#FFD700" stock="7">Vàng</color>
+      <color hex="#C0C0C0" stock="10">Bạc</color>
+    </colors>
+    <sizes/>
+    <stock>17</stock>
+    <sold>18</sold>
+    <rating rate="3.9" count="70"/>
+    <createdAt>2026-07-07</createdAt>
+  </product>
+  <product id="7" sku="SP007-JEW" category="jewelery" status="active" featured="false">
+    <title>White Gold Plated Princess</title>
+    <price currency="USD">9.99</price>
+    <discount>10</discount>
+    <salePrice>8.99</salePrice>
+    <description>Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...</description>
+    <image>https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png</image>
+    <colors>
+      <color hex="#C0C0C0" stock="14">Bạc</color>
+      <color hex="#B76E79" stock="17">Vàng hồng</color>
+      <color hex="#FFD700" stock="20">Vàng</color>
+    </colors>
+    <sizes/>
+    <stock>51</stock>
+    <sold>31</sold>
+    <rating rate="3" count="400"/>
+    <createdAt>2026-08-08</createdAt>
+  </product>
+  <product id="8" sku="SP008-JEW" category="jewelery" status="active" featured="false">
+    <title>Pierced Owl Rose Gold Plated Stainless Steel Double</title>
+    <price currency="USD">10.99</price>
+    <discount>15</discount>
+    <salePrice>9.34</salePrice>
+    <description>Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel</description>
+    <image>https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png</image>
+    <colors>
+      <color hex="#B76E79" stock="21">Vàng hồng</color>
+      <color hex="#FFD700" stock="24">Vàng</color>
+    </colors>
+    <sizes/>
+    <stock>45</stock>
+    <sold>44</sold>
+    <rating rate="1.9" count="100"/>
+    <createdAt>2026-09-09</createdAt>
+  </product>
+  <product id="9" sku="SP009-ELE" category="electronics" status="active" featured="false">
+    <title>WD 2TB Elements Portable External Hard Drive - USB 3.0</title>
+    <price currency="USD">64</price>
+    <discount>20</discount>
+    <salePrice>51.2</salePrice>
+    <description>USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system</description>
+    <image>https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_t.png</image>
+    <colors>
+      <color hex="#FFFFFF" stock="8">Trắng</color>
+      <color hex="#A9A9A9" stock="11">Xám bạc</color>
+      <color hex="#1E88E5" stock="14">Xanh dương</color>
+    </colors>
+    <sizes/>
+    <stock>33</stock>
+    <sold>57</sold>
+    <rating rate="3.3" count="203"/>
+    <createdAt>2026-01-10</createdAt>
+  </product>
+  <product id="10" sku="SP010-ELE" category="electronics" status="active" featured="false">
+    <title>SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s</title>
+    <price currency="USD">109</price>
+    <discount>0</discount>
+    <salePrice>109</salePrice>
+    <description>Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)</description>
+    <image>https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_t.png</image>
+    <colors>
+      <color hex="#A9A9A9" stock="15">Xám bạc</color>
+      <color hex="#1E88E5" stock="18">Xanh dương</color>
+    </colors>
+    <sizes/>
+    <stock>33</stock>
+    <sold>10</sold>
+    <rating rate="2.9" count="470"/>
+    <createdAt>2026-02-11</createdAt>
+  </product>
+  <product id="11" sku="SP011-ELE" category="electronics" status="active" featured="true">
+    <title>Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5</title>
+    <price currency="USD">109</price>
+    <discount>5</discount>
+    <salePrice>103.55</salePrice>
+    <description>3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking &amp; Correction) to provide the optimized performance and enhanced reliability.</description>
+    <image>https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_t.png</image>
+    <colors>
+      <color hex="#1E88E5" stock="22">Xanh dương</color>
+      <color hex="#000000" stock="5">Đen</color>
+      <color hex="#FFFFFF" stock="8">Trắng</color>
+    </colors>
+    <sizes/>
+    <stock>35</stock>
+    <sold>23</sold>
+    <rating rate="4.8" count="319"/>
+    <createdAt>2026-03-12</createdAt>
+  </product>
+  <product id="12" sku="SP012-ELE" category="electronics" status="active" featured="true">
+    <title>WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive</title>
+    <price currency="USD">114</price>
+    <discount>10</discount>
+    <salePrice>102.6</salePrice>
+    <description>Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty</description>
+    <image>https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png</image>
+    <colors>
+      <color hex="#000000" stock="9">Đen</color>
+      <color hex="#FFFFFF" stock="12">Trắng</color>
+    </colors>
+    <sizes/>
+    <stock>21</stock>
+    <sold>36</sold>
+    <rating rate="4.8" count="400"/>
+    <createdAt>2026-04-13</createdAt>
+  </product>
+  <product id="13" sku="SP013-ELE" category="electronics" status="active" featured="false">
+    <title>Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin</title>
+    <price currency="USD">599</price>
+    <discount>15</discount>
+    <salePrice>509.15</salePrice>
+    <description>21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz</description>
+    <image>https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_t.png</image>
+    <colors>
+      <color hex="#FFFFFF" stock="16">Trắng</color>
+      <color hex="#A9A9A9" stock="19">Xám bạc</color>
+      <color hex="#1E88E5" stock="22">Xanh dương</color>
+    </colors>
+    <sizes/>
+    <stock>57</stock>
+    <sold>49</sold>
+    <rating rate="2.9" count="250"/>
+    <createdAt>2026-05-14</createdAt>
+  </product>
+  <product id="14" sku="SP014-ELE" category="electronics" status="active" featured="false">
+    <title>Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED</title>
+    <price currency="USD">999.99</price>
+    <discount>20</discount>
+    <salePrice>799.99</salePrice>
+    <description>49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag</description>
+    <image>https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_t.png</image>
+    <colors>
+      <color hex="#A9A9A9" stock="23">Xám bạc</color>
+      <color hex="#1E88E5" stock="6">Xanh dương</color>
+    </colors>
+    <sizes/>
+    <stock>29</stock>
+    <sold>2</sold>
+    <rating rate="2.2" count="140"/>
+    <createdAt>2026-06-15</createdAt>
+  </product>
+  <product id="15" sku="SP015-WOM" category="women's clothing" status="active" featured="false">
+    <title>BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats</title>
+    <price currency="USD">56.99</price>
+    <discount>0</discount>
+    <salePrice>56.99</salePrice>
+    <description>Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates</description>
+    <image>https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_t.png</image>
+    <colors>
+      <color hex="#E53935" stock="10">Đỏ</color>
+      <color hex="#F48FB1" stock="13">Hồng</color>
+      <color hex="#FFFFFF" stock="16">Trắng</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+    </sizes>
+    <stock>39</stock>
+    <sold>15</sold>
+    <rating rate="2.6" count="235"/>
+    <createdAt>2026-07-16</createdAt>
+  </product>
+  <product id="16" sku="SP016-WOM" category="women's clothing" status="active" featured="false">
+    <title>Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket</title>
+    <price currency="USD">29.95</price>
+    <discount>5</discount>
+    <salePrice>28.45</salePrice>
+    <description>100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON</description>
+    <image>https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_t.png</image>
+    <colors>
+      <color hex="#F48FB1" stock="17">Hồng</color>
+      <color hex="#FFFFFF" stock="20">Trắng</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+    </sizes>
+    <stock>37</stock>
+    <sold>28</sold>
+    <rating rate="2.9" count="340"/>
+    <createdAt>2026-08-17</createdAt>
+  </product>
+  <product id="17" sku="SP017-WOM" category="women's clothing" status="active" featured="false">
+    <title>Rain Jacket Women Windbreaker Striped Climbing Raincoats</title>
+    <price currency="USD">39.99</price>
+    <discount>10</discount>
+    <salePrice>35.99</salePrice>
+    <description>Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.</description>
+    <image>https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2t.png</image>
+    <colors>
+      <color hex="#FFFFFF" stock="24">Trắng</color>
+      <color hex="#8E24AA" stock="7">Tím</color>
+      <color hex="#F5F5DC" stock="10">Be</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+    </sizes>
+    <stock>41</stock>
+    <sold>41</sold>
+    <rating rate="3.8" count="679"/>
+    <createdAt>2026-09-18</createdAt>
+  </product>
+  <product id="18" sku="SP018-WOM" category="women's clothing" status="active" featured="true">
+    <title>MBJ Women's Solid Short Sleeve Boat Neck V</title>
+    <price currency="USD">9.85</price>
+    <discount>15</discount>
+    <salePrice>8.37</salePrice>
+    <description>95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem</description>
+    <image>https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_t.png</image>
+    <colors>
+      <color hex="#8E24AA" stock="11">Tím</color>
+      <color hex="#F5F5DC" stock="14">Be</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+    </sizes>
+    <stock>25</stock>
+    <sold>54</sold>
+    <rating rate="4.7" count="130"/>
+    <createdAt>2026-01-19</createdAt>
+  </product>
+  <product id="19" sku="SP019-WOM" category="women's clothing" status="active" featured="true">
+    <title>Opna Women's Short Sleeve Moisture</title>
+    <price currency="USD">7.95</price>
+    <discount>20</discount>
+    <salePrice>6.36</salePrice>
+    <description>100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash &amp; Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort</description>
+    <image>https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_t.png</image>
+    <colors>
+      <color hex="#F5F5DC" stock="18">Be</color>
+      <color hex="#E53935" stock="21">Đỏ</color>
+      <color hex="#F48FB1" stock="24">Hồng</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+    </sizes>
+    <stock>63</stock>
+    <sold>7</sold>
+    <rating rate="4.5" count="146"/>
+    <createdAt>2026-02-20</createdAt>
+  </product>
+  <product id="20" sku="SP020-WOM" category="women's clothing" status="active" featured="false">
+    <title>DANVOUY Womens T Shirt Casual Cotton Short</title>
+    <price currency="USD">12.99</price>
+    <discount>0</discount>
+    <salePrice>12.99</salePrice>
+    <description>95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.</description>
+    <image>https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_t.png</image>
+    <colors>
+      <color hex="#E53935" stock="5">Đỏ</color>
+      <color hex="#F48FB1" stock="8">Hồng</color>
+    </colors>
+    <sizes>
+      <size>S</size>
+      <size>M</size>
+      <size>L</size>
+    </sizes>
+    <stock>13</stock>
+    <sold>20</sold>
+    <rating rate="3.6" count="145"/>
+    <createdAt>2026-03-21</createdAt>
+  </product>
+</products>

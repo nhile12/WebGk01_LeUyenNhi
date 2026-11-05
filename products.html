@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Danh sách sản phẩm - Mini-Project Website Bán Hàng">
+  <title>Danh sách sản phẩm</title>
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+
+  <!-- ========== HEADER + MENU (nav) ========== -->
+  <header class="site-header">
+    <div class="brand">
+      <a href="products.html" class="logo">UEL<span>Shop</span></a>
+      <p class="slogan">Mua sắm thông minh</p>
+    </div>
+
+    <nav class="main-nav" aria-label="Menu chính">
+      <ul>
+        <li><a href="products.html" class="active" aria-current="page">Sản phẩm</a></li>
+        <li><a href="fetch_products.html">Dữ liệu JSON/XML (Câu 1)</a></li>
+        <li><a href="#product-list">Danh sách</a></li>
+        <li><a href="#search-panel">Tìm kiếm</a></li>
+      </ul>
+    </nav>
+
+    <!-- Câu 6: Giỏ hàng + Mini-cart (position: absolute) -->
+    <div class="cart-wrap">
+      <button type="button" id="cartToggle" class="cart-badge" aria-expanded="false" aria-controls="miniCart">
+        🛒 Giỏ hàng: <output id="cartCount">0</output>
+      </button>
+
+      <div id="miniCart" class="mini-cart" hidden>
+        <div class="mini-cart-head">
+          <strong>Giỏ hàng của bạn</strong>
+          <button type="button" class="icon-btn" data-cart="close" aria-label="Đóng giỏ hàng">✕</button>
+        </div>
+        <ul id="miniCartItems" class="mini-cart-items"></ul>
+        <dl class="mini-cart-total">
+          <dt>Tạm tính</dt><dd id="cartSubtotal">$0.00</dd>
+          <dt>Phí vận chuyển</dt><dd id="cartShipping">$0.00</dd>
+          <dt class="grand">Tổng cộng</dt><dd id="cartTotal" class="grand">$0.00</dd>
+        </dl>
+        <div class="mini-cart-actions">
+          <button type="button" class="btn btn-light" data-cart="clear">Xóa hết</button>
+          <button type="button" class="btn btn-primary" data-cart="checkout" id="btnCheckout">Thanh toán</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== NỘI DUNG CHÍNH ========== -->
+  <main class="layout">
+
+    <!-- ===== Thanh bên: Form tìm kiếm nâng cao (Câu 2) ===== -->
+    <aside id="search-panel" class="sidebar" aria-labelledby="search-title">
+      <h2 id="search-title">Tìm kiếm nâng cao</h2>
+
+      <form id="searchForm" class="search-form" autocomplete="off">
+
+        <fieldset>
+          <legend>Từ khóa</legend>
+          <label for="keyword">Tên sản phẩm</label>
+          <input type="search" id="keyword" name="keyword"
+                 placeholder="VD: shirt, ring, SSD..."
+                 minlength="2" maxlength="50"
+                 pattern="[A-Za-zÀ-ỹ0-9\s'&amp;.,\-]+"
+                 title="Từ 2 đến 50 ký tự, chỉ gồm chữ, số và khoảng trắng">
+        </fieldset>
+
+        <fieldset>
+          <legend>Danh mục</legend>
+          <label for="category">Chọn danh mục <abbr title="bắt buộc">*</abbr></label>
+          <select id="category" name="category" required>
+            <option value="" disabled>-- Chọn danh mục --</option>
+            <option value="all" selected>Tất cả</option>
+            <option value="men's clothing">Thời trang nam</option>
+            <option value="women's clothing">Thời trang nữ</option>
+            <option value="jewelery">Trang sức</option>
+            <option value="electronics">Điện tử</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Khoảng giá (USD)</legend>
+          <div class="price-row">
+            <div>
+              <label for="priceMin">Từ</label>
+              <input type="number" id="priceMin" name="priceMin"
+                     min="0" max="1000" step="0.01" value="0" required
+                     title="Giá từ 0 đến 1000">
+            </div>
+            <div>
+              <label for="priceMax">Đến</label>
+              <input type="number" id="priceMax" name="priceMax"
+                     min="0" max="1000" step="0.01" value="1000" required
+                     title="Giá từ 0 đến 1000, phải lớn hơn hoặc bằng giá Từ">
+            </div>
+          </div>
+          <label for="priceRange">Giá tối đa: <output id="priceRangeOut" for="priceRange">1000</output> $</label>
+          <input type="range" id="priceRange" name="priceRange" min="0" max="1000" step="10" value="1000">
+        </fieldset>
+
+        <fieldset>
+          <legend>Màu sắc</legend>
+          <div id="colorOptions" class="color-options">
+            <!-- Các ô chọn màu được tạo từ dữ liệu sản phẩm -->
+            <span class="skeleton skeleton-line w-90"></span>
+            <span class="skeleton skeleton-line w-60"></span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Đánh giá</legend>
+          <div class="rating-options">
+            <label><input type="radio" name="rating" value="0" checked required> Tất cả</label>
+            <label><input type="radio" name="rating" value="4"> ★★★★☆ từ 4 trở lên</label>
+            <label><input type="radio" name="rating" value="3"> ★★★☆☆ từ 3 trở lên</label>
+            <label><input type="radio" name="rating" value="2"> ★★☆☆☆ từ 2 trở lên</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Sắp xếp</legend>
+          <label for="sort">Sắp xếp theo</label>
+          <select id="sort" name="sort">
+            <option value="default">Mặc định</option>
+            <option value="price-asc">Giá tăng dần</option>
+            <option value="price-desc">Giá giảm dần</option>
+            <option value="rating-desc">Đánh giá cao nhất</option>
+          </select>
+        </fieldset>
+
+        <p id="formError" class="form-error" role="alert" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+          <button type="reset" class="btn btn-light">Đặt lại</button>
+        </div>
+      </form>
+    </aside>
+
+    <!-- ===== Danh sách sản phẩm ===== -->
+    <section id="product-list" class="products" aria-labelledby="list-title">
+      <header class="products-header">
+        <h2 id="list-title">Danh sách sản phẩm</h2>
+        <p id="resultInfo" class="result-info" aria-live="polite">Đang tải dữ liệu...</p>
+      </header>
+
+      <!-- Câu 4: hiển thị thông tin data-id / data-variant vừa bắt được -->
+      <p class="event-log">Sự kiện gần nhất: <output id="eventLog">Chưa có</output></p>
+
+      <!-- Container cha: gắn DUY NHẤT một Event Listener (Event Delegation) -->
+      <div id="productGrid" class="product-grid" aria-busy="true"></div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <p>Sinh viên thực hiện: <strong>Lê Uyên Nhi</strong> - MSSV: <strong>K244161801</strong></p>
+    <p><small>Mini-Project Website Bán Hàng - Phát triển Web Kinh doanh</small></p>
+  </footer>
+
+  <!-- ========== Mẫu thẻ sản phẩm ========== -->
+  <template id="productTemplate">
+    <article class="product-card" data-id="" data-variant="">
+      <figure class="product-image">
+        <img src="" alt="" loading="lazy">
+        <figcaption class="badge"></figcaption>
+        <!-- Câu 5: <span class="avg-rating"> được chèn vào đây -->
+      </figure>
+      <div class="product-body">
+        <p class="product-category"></p>
+        <h3 class="product-title"></h3>
+        <p class="product-rating"></p>
+        <div class="variant-group" aria-label="Chọn màu">
+          <span class="variant-label">Màu:</span>
+          <div class="variant-colors"></div>
+        </div>
+        <div class="variant-group variant-size-group" aria-label="Chọn size">
+          <span class="variant-label">Size:</span>
+          <div class="variant-sizes"></div>
+        </div>
+        <p class="product-price"><span class="sale"></span> <del class="old"></del></p>
+        <p class="product-stock"></p>
+        <div class="card-actions">
+          <button type="button" class="btn btn-primary" data-action="add-to-cart">Thêm vào giỏ hàng</button>
+          <button type="button" class="btn btn-outline" data-action="quick-view">Xem nhanh</button>
+        </div>
+        <button type="button" class="link-btn" data-action="rating-detail">Rating Detail ›</button>
+      </div>
+    </article>
+  </template>
+
+  <!-- ========== Hộp thoại Xem nhanh (Câu 4) ========== -->
+  <dialog id="quickViewDialog" class="dialog dialog-wide" aria-labelledby="qvTitle">
+    <button type="button" class="icon-btn dialog-close" data-close aria-label="Đóng">✕</button>
+    <div class="quick-view">
+      <figure class="qv-image"><img id="qvImage" src="" alt=""></figure>
+      <div class="qv-info">
+        <p id="qvCategory" class="product-category"></p>
+        <h3 id="qvTitle"></h3>
+        <p id="qvRating" class="product-rating"></p>
+        <p class="product-price"><span id="qvSale" class="sale"></span> <del id="qvOld" class="old"></del></p>
+        <p id="qvVariant" class="qv-variant"></p>
+        <p id="qvDesc" class="qv-desc"></p>
+        <table class="qv-stock">
+          <thead><tr><th>Màu</th><th>Tồn kho</th></tr></thead>
+          <tbody id="qvStock"></tbody>
+        </table>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ========== Hộp thoại Rating Detail (Câu 5) ========== -->
+  <dialog id="ratingDialog" class="dialog" aria-labelledby="rdTitle">
+    <button type="button" class="icon-btn dialog-close" data-close aria-label="Đóng">✕</button>
+    <h3 id="rdTitle">Chi tiết đánh giá</h3>
+    <p id="rdSummary" class="rd-summary"></p>
+    <ul id="rdList" class="rd-list"></ul>
+  </dialog>
+
+  <!-- ========== Hộp thoại Thanh toán (Câu 7) ========== -->
+  <dialog id="checkoutDialog" class="dialog dialog-wide" aria-labelledby="coTitle">
+    <button type="button" class="icon-btn dialog-close" data-close aria-label="Đóng">✕</button>
+    <h3 id="coTitle">Thông tin giao hàng</h3>
+
+    <div id="checkoutBody" class="checkout">
+      <form id="checkoutForm" class="checkout-form" novalidate>
+        <div class="field">
+          <label for="coName">Họ và tên <abbr title="bắt buộc">*</abbr></label>
+          <input type="text" id="coName" name="fullName" placeholder="VD: Nguyễn Văn An" autocomplete="name">
+          <small class="field-msg" id="coNameMsg"></small>
+        </div>
+        <div class="field">
+          <label for="coPhone">Số điện thoại <abbr title="bắt buộc">*</abbr></label>
+          <input type="tel" id="coPhone" name="phone" placeholder="VD: 0901234567 hoặc +84901234567" autocomplete="tel">
+          <small class="field-msg" id="coPhoneMsg"></small>
+        </div>
+        <div class="field">
+          <label for="coEmail">Email <abbr title="bắt buộc">*</abbr></label>
+          <input type="email" id="coEmail" name="email" placeholder="VD: an.nguyen@gmail.com" autocomplete="email">
+          <small class="field-msg" id="coEmailMsg"></small>
+        </div>
+        <div class="field">
+          <label for="coAddress">Địa chỉ giao hàng <abbr title="bắt buộc">*</abbr></label>
+          <input type="text" id="coAddress" name="address" placeholder="Số nhà, đường, phường, quận, tỉnh/thành" autocomplete="street-address">
+          <small class="field-msg" id="coAddressMsg"></small>
+        </div>
+        <fieldset class="field">
+          <legend>Phương thức thanh toán</legend>
+          <label class="inline"><input type="radio" name="payment" value="COD" checked> Thanh toán khi nhận hàng (COD)</label>
+          <label class="inline"><input type="radio" name="payment" value="BANKING"> Chuyển khoản ngân hàng</label>
+          <label class="inline"><input type="radio" name="payment" value="MOMO"> Ví MoMo</label>
+        </fieldset>
+        <div class="field">
+          <label for="coNote">Ghi chú</label>
+          <textarea id="coNote" name="note" rows="2" maxlength="200" placeholder="Không bắt buộc"></textarea>
+        </div>
+        <p id="coError" class="form-error" role="alert"></p>
+        <button type="submit" id="coSubmit" class="btn btn-primary btn-block">Xác nhận thanh toán</button>
+      </form>
+
+      <aside class="checkout-summary" aria-label="Tóm tắt đơn hàng">
+        <h4>Đơn hàng</h4>
+        <ul id="coItems" class="co-items"></ul>
+        <dl class="mini-cart-total">
+          <dt>Tạm tính</dt><dd id="coSubtotal"></dd>
+          <dt>Phí vận chuyển</dt><dd id="coShipping"></dd>
+          <dt class="grand">Tổng cộng</dt><dd id="coTotal" class="grand"></dd>
+        </dl>
+      </aside>
+    </div>
+
+    <div id="checkoutSuccess" class="checkout-success" hidden>
+      <p class="success-icon">✔</p>
+      <h4>Thanh toán thành công!</h4>
+      <p>Mã đơn hàng: <strong id="coOrderId"></strong></p>
+      <p id="coOrderInfo"></p>
+      <button type="button" class="btn btn-primary" data-close>Tiếp tục mua sắm</button>
+    </div>
+  </dialog>
+
+  <!-- Thông báo nhanh -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/reviews.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>
